@@ -1,4 +1,4 @@
-import time, sys
+import time, sys, math
 
 def esprimo(n):    
     i = 2
@@ -11,6 +11,10 @@ def esprimo(n):
         return True
     else:
         return False
+
+### 30n + 19 <= 1.000.000 => n <= (1.000.000-19) /30 = L33.332,7 => 33.332 
+def getNumOfIterations(n: int) -> int :
+    return math.floor((n - 19) * 1/30)
 
 def prog(num: int):
     t1=time.time()
@@ -25,9 +29,16 @@ if __name__ == "__main__":
     if len(args) - 2 < 0:
         print("Argumentos insuficientes")
         exit()
-    num = int(args[1])
 
-    prog(num)
+    
+    num = int(args[1])
+    
+    if (num < 19): 
+        num = 19
+
+    num_iterations = getNumOfIterations(num)
+    print(num_iterations)
+  ##  prog(num)
 
 
 
