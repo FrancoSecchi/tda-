@@ -1,15 +1,15 @@
 import time, sys, math
  ### {30n + 11, 30n + 13, 30n + 17, 30n + 19} esto me generá potenciales grupos pero no me asegura que cada uno de sus elementos sea primo. Esta estructura es necesaria para asegurar que ninguno de los cuatro números primos sea divisible por 2, 3 o por 5).
-## Como sé que no es divisile por 2, 3 o 5, empiezo desde 7.
-def esprimo(n):    
-    i = 7
-    cd=0
-    while i<=n-1:
-        if n%i == 0:
-            cd = cd+1
-        i = i+1
+## Como sé que no es divisile por 2, 3 o 5. Con esto se descartan los multiplos de 2, 3 y 5, empiezo desde 7.
+def esprimo(n: int, primos: list):    
+    for i in range(len(primos) - 1): 
+        p = primos[i]
+        if n % p == 0: 
+            return False
 
-    return cd == 0
+    primos.append(n)
+#    print(primos)
+    return True
 
 ### 30n + 19 <= 1.000.000 => n <= (1.000.000-19) /30 = L33.332,7 => 33.332 
 def getNumOfIterations(n: int) -> int :
@@ -18,12 +18,13 @@ def getNumOfIterations(n: int) -> int :
 ### {30n + 11, 30n + 13, 30n + 17, 30n + 19} esto me generá potenciales grupos pero no me asegura que cada uno de sus elementos sea primo. Esta estructura es necesaria para asegurar que ninguno de los cuatro números primos sea divisible por 2, 3 o por 5).
 def prog(nIter: int):
     t1=time.time()
+    primos = [7] # Empiezo con un primo ya conocido
     for i in range (0, nIter + 1):
         n1 = 30*i +11
         n2 = 30*i + 13
         n3 = 30*i + 17
         n4 = 30*i + 19
-        if esprimo(n1) and esprimo(n2) and esprimo(n3) and esprimo(n4):
+        if esprimo(n1, primos) and esprimo(n2, primos) and esprimo(n3, primos) and esprimo(n4, primos):
             print(n1, n2, n3, n3)
     t2=time.time()
     print(t2-t1)
