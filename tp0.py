@@ -1,7 +1,8 @@
 import time, sys, math
-
+ ### {30n + 11, 30n + 13, 30n + 17, 30n + 19} esto me generá potenciales grupos pero no me asegura que cada uno de sus elementos sea primo. Esta estructura es necesaria para asegurar que ninguno de los cuatro números primos sea divisible por 2, 3 o por 5).
+## Como sé que no es divisile por 2, 3 o 5, empiezo desde 7.
 def esprimo(n):    
-    i = 2
+    i = 7
     cd=0
     while i<=n-1:
         if n%i == 0:
