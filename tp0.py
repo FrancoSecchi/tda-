@@ -8,10 +8,8 @@ def esprimo(n):
         if n%i == 0:
             cd = cd+1
         i = i+1
-    if cd == 0:
-        return True
-    else:
-        return False
+
+    return cd == 0
 
 ### 30n + 19 <= 1.000.000 => n <= (1.000.000-19) /30 = L33.332,7 => 33.332 
 def getNumOfIterations(n: int) -> int :
