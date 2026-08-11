@@ -35,6 +35,8 @@ if __name__ == "__main__":
     ### Prog dinamica es una gran opcion
     ### https://es.wikipedia.org/wiki/Cuadruplete_primo
     ### https://oeis.org/A007530
-    ### {30n + 11, 30n + 13, 30n + 17, 30n + 19} esto me generá potenciales grupos pero no me asegura que cada uno de sus elementos sea primo
+            ### {30n + 11, 30n + 13, 30n + 17, 30n + 19} esto me generá potenciales grupos pero no me asegura que cada uno de sus elementos sea primo. Esta estructura es necesaria para asegurar que ninguno de los cuatro números primos sea divisible por 2, 3 o por 5).
+    ### https://t5k.org/glossary/page.php?sort=WheelFactorization
+    ### https://www.primesdemystified.com/
     ### Usaria eso + dinamica.
     ### 30n + 19 <= 1.000.000 => n <= (1.000.000-19) /30 = L33.332,7 => 33.332 
